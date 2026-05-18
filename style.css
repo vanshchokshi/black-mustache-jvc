@@ -4,13 +4,19 @@
     --gold: #d4af37;
     --white: #f4f4f4;
     --text-gray: #aaaaaa;
+    --transition: all 0.3s ease;
 }
 
+/* Base Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,9 +25,10 @@ body {
     line-height: 1.6;
 }
 
+/* Navigation */
 header {
     background-color: var(--secondary-black);
-    padding: 1rem 5%;
+    padding: 1.2rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,190 +40,253 @@ header {
 
 .logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 800;
     color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 nav a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.9rem;
-    transition: color 0.3s;
+    margin-left: 25px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
 }
 
 nav a:hover {
     color: var(--gold);
 }
 
+/* Hero Section */
 .hero {
-    height: 80vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    /* Updated to pull your local file from the assets folder */
-    background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.9)), url('assets/hero-bg.jpg') center/cover;
+    /* Ensure hero-bg.jpg is in your assets folder */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('assets/hero-bg.jpg') center/cover no-repeat;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 .hero p {
     font-size: 1.2rem;
     color: var(--text-gray);
-    margin-bottom: 30px;
-    max-width: 600px;
+    margin-bottom: 35px;
+    max-width: 700px;
 }
 
+/* Buttons */
 .cta-btn {
-    padding: 15px 30px;
+    padding: 18px 40px;
     background-color: var(--gold);
     color: var(--primary-black);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
-    border-radius: 3px;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: var(--transition);
+    display: inline-block;
 }
 
 .cta-btn:hover {
     background-color: #f3c642;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
+/* Sections Global */
 section {
-    padding: 80px 5%;
+    padding: 100px 5%;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Pricing Grid Styles */
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background-color: var(--secondary-black);
+    padding: 0 0 30px 0;
+    text-align: center;
+    border: 1px solid #222;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-10px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 25px;
+    filter: grayscale(20%);
+    transition: var(--transition);
+}
+
+.service-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: var(--gold);
+}
+
+.service-card p {
+    padding: 0 25px;
+    color: var(--text-gray);
+}
+
+/* Pricing Section */
 .pricing-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     background-color: var(--secondary-black);
-    padding: 40px;
+    padding: 50px;
     border: 1px solid #333;
+    position: relative;
 }
 
 .price-item {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid #333;
-    font-size: 1.2rem;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #2a2a2a;
+    font-size: 1.3rem;
 }
 
 .price-item:last-child {
     border-bottom: none;
 }
 
+.price-item span:first-child {
+    font-weight: 500;
+}
+
 .price-item .price {
     color: var(--gold);
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background-color: var(--secondary-black);
-    padding: 30px;
-    text-align: center;
-    border: 1px solid #333;
-    transition: border-color 0.3s;
-}
-
-.service-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 4px;
-}
-
-.service-card:hover {
-    border-color: var(--gold);
-}
-
-.service-card h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
+/* Reviews Section */
 .reviews {
     background-color: var(--secondary-black);
 }
 
 .review-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
 .review-card {
     background-color: var(--primary-black);
-    padding: 30px;
-    border-left: 4px solid var(--gold);
+    padding: 40px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .stars {
     color: var(--gold);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
 .review-text {
     font-style: italic;
     color: var(--text-gray);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
 }
 
 .reviewer-name {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--gold);
 }
 
+/* Team/Barbers Section */
 .barbers {
     text-align: center;
+    background-color: var(--primary-black);
 }
 
 .barber-names {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--text-gray);
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
+/* Contact/Booking Section */
+.booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('assets/hero-bg1.jpg') center/cover;
+    padding: 80px 40px;
+    border: 1px solid #333;
+}
+
+.booking-info h3 {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+/* Footer */
 footer {
-    background-color: #0a0a0a;
-    padding: 40px 5%;
+    background-color: #050505;
+    padding: 60px 5%;
     text-align: center;
     border-top: 1px solid #222;
 }
 
 footer p {
     color: var(--text-gray);
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    nav { display: none; }
+    header { padding: 1rem 5%; }
+    .hero h1 { font-size: 2.8rem; }
+    .section-title { font-size: 2rem; }
+    .pricing-container { padding: 30px; }
+    .price-item { font-size: 1.1rem; }
 }
