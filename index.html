@@ -5,6 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Mustache Gents Salon | Premier Barber Shop in JVC</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Compact Pricing Override */
+        .pricing-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px 40px;
+        }
+        .pricing-category {
+            margin-bottom: 20px;
+        }
+        .pricing-category h3 {
+            color: var(--gold);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .price-item {
+            padding: 8px 0; /* Compact padding */
+            font-size: 1.1rem;
+            border-bottom: 1px dashed #2a2a2a;
+        }
+        
+        /* Horizontal Review Carousel Override */
+        .review-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 30px;
+            gap: 20px;
+        }
+        .review-card {
+            flex: 0 0 350px;
+            scroll-snap-align: center;
+            border-top: 3px solid var(--gold);
+        }
+        /* Custom Scrollbar for Carousel */
+        .review-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+        .review-grid::-webkit-scrollbar-track {
+            background: var(--primary-black); 
+        }
+        .review-grid::-webkit-scrollbar-thumb {
+            background: var(--gold); 
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -49,32 +101,54 @@
     <section id="pricing">
         <h2 class="section-title">The Investment</h2>
         <div class="pricing-container">
-            <div class="price-item">
-                <span>Standard Haircut</span>
-                <span class="price">60 AED</span>
-            </div>
-            <div class="price-item">
-                <span>Skin Fade</span>
-                <span class="price">80 AED</span>
-            </div>
-            <div class="price-item">
-                <span>Kids Cut</span>
-                <span class="price">50 AED</span>
-            </div>
-            <div class="price-item">
-                <span>Beard Trim & Shape</span>
-                <span class="price">40 AED</span>
-            </div>
-            <div class="price-item">
-                <span>Haircut & Beard Combo</span>
-                <span class="price">90 AED</span>
-            </div>
-            <div class="price-item">
-                <span>Face Mask & Scrub</span>
-                <span class="price">50 AED</span>
+            <div class="pricing-wrapper">
+                
+                <div class="pricing-category">
+                    <h3>Hair Care</h3>
+                    <div class="price-item"><span>Adult Hair Cut</span><span class="price">60 AED</span></div>
+                    <div class="price-item"><span>Hair Cut (Machine)</span><span class="price">40 AED</span></div>
+                    <div class="price-item"><span>Hair Shave (Blade)</span><span class="price">40 AED</span></div>
+                    <div class="price-item"><span>Children Hair Cut</span><span class="price">40 AED</span></div>
+                    <div class="price-item"><span>Hair Style</span><span class="price">35 AED</span></div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Beard Care</h3>
+                    <div class="price-item"><span>Shaving (Machine)</span><span class="price">25 AED</span></div>
+                    <div class="price-item"><span>Shaving (Blade)</span><span class="price">30 AED</span></div>
+                    <div class="price-item"><span>Beard Trimming</span><span class="price">30 AED</span></div>
+                    <div class="price-item"><span>Face Wax</span><span class="price">15 AED</span></div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Color & Highlights</h3>
+                    <div class="price-item"><span>Beard Dye</span><span class="price">30 AED</span></div>
+                    <div class="price-item"><span>Hair Dye (No Ammonia)</span><span class="price">110 AED</span></div>
+                    <div class="price-item"><span>Hair Dye (Normal)</span><span class="price">90 AED</span></div>
+                    <div class="price-item"><span>Hair Dye (Highlights)</span><span class="price">150 AED</span></div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Maintain & Spa</h3>
+                    <div class="price-item"><span>Oily Bath (Normal)</span><span class="price">80 AED</span></div>
+                    <div class="price-item"><span>Oily Bath (Royal)</span><span class="price">110 AED</span></div>
+                    <div class="price-item"><span>Facial Normal</span><span class="price">175 AED</span></div>
+                    <div class="price-item"><span>Facial Spa (Vitamin C)</span><span class="price">225 AED</span></div>
+                    <div class="price-item"><span>Hair Straightening (Normal)</span><span class="price">100 AED</span></div>
+                    <div class="price-item"><span>Hair Straightening (Keratin)</span><span class="price">200* AED</span></div>
+                    <div class="price-item"><span>Hair Straightening (Botox)</span><span class="price">200* AED</span></div>
+                </div>
+
+                <div class="pricing-category">
+                    <h3>Nail Care</h3>
+                    <div class="price-item"><span>Pedicure</span><span class="price">70 AED</span></div>
+                    <div class="price-item"><span>Manicure</span><span class="price">40 AED</span></div>
+                    <div class="price-item"><span>Foot Spa</span><span class="price">110 AED</span></div>
+                </div>
+
             </div>
         </div>
-        <p style="text-align: center; color: var(--text-gray); margin-top: 20px; font-size: 0.9rem;">*Prices are placeholders. Please confirm directly with the salon.</p>
+        <p style="text-align: center; color: var(--text-gray); margin-top: 30px; font-size: 0.9rem;">*All prices are VAT inclusive. Starting prices for specific hair treatments.</p>
     </section>
 
     <section id="reviews" class="reviews">
@@ -82,18 +156,28 @@
         <div class="review-grid">
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"Mustafa is a great barber. Very professional, friendly, and pays attention to details. The haircut was exactly what I wanted. Clean place, good service."</p>
-                <p class="reviewer-name">- Sultan Izatilda</p>
+                <p class="review-text">"I have been coming to this place from a very long time and they’ve a very remarkable services and Mustafa is a great barber. He knows how to get the job done and make the client feel like home."</p>
+                <p class="reviewer-name">- Sattya Jangidd</p>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"I have visited this shop for a while now. Service is excellent. Alaa is one of the most skilled barbers I have ever worked with. Highly recommended."</p>
-                <p class="reviewer-name">- Georges Khater</p>
+                <p class="review-text">"I have been in Dubai a long time and went to various barbers in all different areas, Ayham from Black Mustache JVC is the best one I have been to both from being in UAE and in UK. He is very attentive, friendly and does a perfect job."</p>
+                <p class="reviewer-name">- Ronan Hutchingson</p>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"Excellent service, really good prices. Anwar always takes care of me. Best gents salon and spa places in JVC and I would say Dubai."</p>
-                <p class="reviewer-name">- Nadeem Hushki / Laith Haddadin</p>
+                <p class="review-text">"A very nice salon. I enjoyed my haircut today. Abdul-Razzaq is a very skilled barber and his service was excellent. Thank you for this great experience."</p>
+                <p class="reviewer-name">- ااتنن ووزظظلى</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Nice and clean with very courteous staff , especially the pedicure done by Maya was exceptional."</p>
+                <p class="reviewer-name">- Khwaja Ji</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"My go-to for a while now, very skilled barbers and clean shop. 5/5. Stylist: Anwar."</p>
+                <p class="reviewer-name">- Basil Zaidan</p>
             </div>
         </div>
     </section>
@@ -114,9 +198,10 @@
                 <p><strong>Open Daily:</strong> 10:00 AM - 10:00 PM</p>
                 <br>
                 <p>Walk-ins are welcome, but appointments guarantee your spot.</p>
+                <br>
+                <p style="font-size: 1.1rem;"><strong>Mobile:</strong> 055 467 1771 | <strong>Landline:</strong> 04 589 6390</p>
                 <br><br>
-                <a href="tel:+971554671771" class="cta-btn" style="display: inline-block;">Call Mobile</a>
-                <a href="tel:+97145896390" class="cta-btn" style="display: inline-block;">Call Landline</a>
+                <a href="tel:+971554671771" class="cta-btn" style="display: inline-block;">Call to Book</a>
             </div>
         </div>
     </section>
