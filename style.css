@@ -69,7 +69,7 @@ nav a:hover {
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('assets/hero-bg.png') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('assets/hero-bg.png') center/cover no-repeat;
 }
 
 .hero h1 {
@@ -256,7 +256,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('assets/hero-bg1.png') center/cover;
+    background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)), url('assets/hero-bg1.png') center/cover;
     padding: 80px 40px;
     border: 1px solid #333;
 }
