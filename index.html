@@ -6,28 +6,36 @@
     <title>Black Mustache Gents Salon | Premier Barber Shop in JVC</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Compact Pricing Override */
+        /* Compact Pricing Override - Clean Newspaper Column Alignment */
         .pricing-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px 40px;
+            column-count: 2;
+            column-gap: 50px;
         }
         .pricing-category {
-            margin-bottom: 20px;
+            break-inside: avoid; /* Prevents a category from being split across columns */
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 30px;
         }
         .pricing-category h3 {
             color: var(--gold);
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 1.3rem;
             text-transform: uppercase;
             border-bottom: 1px solid #333;
             padding-bottom: 5px;
         }
         .price-item {
-            padding: 8px 0; /* Compact padding */
+            padding: 8px 0; 
             font-size: 1.1rem;
             border-bottom: 1px dashed #2a2a2a;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-wrapper {
+                column-count: 1; /* Drops to a single column on mobile phones */
+            }
         }
         
         /* Horizontal Review Carousel Override */
@@ -78,22 +86,19 @@
     </section>
 
     <section id="services">
-        <h2 class="section-title">Our Expertise</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="assets/fade-1.png" alt="Precision Haircut">
-                <h3>Hair & Fade</h3>
-                <p>Meticulous attention to detail. Whether it is a classic cut or a skin fade, our experts deliver exactly what you ask for.</p>
-            </div>
-            <div class="service-card">
-                <img src="assets/fade-2.png" alt="Beard Sculpting">
-                <h3>Beard Sculpting</h3>
-                <p>Clean lines and professional trims. We know how to shape a beard to perfectly frame your face.</p>
-            </div>
-            <div class="service-card">
-                <img src="assets/fade-4.png" alt="Gents Styling">
-                <h3>Gents Spa & Styling</h3>
-                <p>Beyond the chair. Elevate your grooming with premium face treatments, styling, and professional care.</p>
+        <h2 class="section-title">Book Your Chair</h2>
+        <div class="booking-container" style="justify-content: center; text-align: center;">
+            <div class="booking-info" style="max-width: 600px; margin: 0 auto;">
+                <h3>Location & Hours</h3>
+                <p>Located in the heart of Jumeirah Village Circle, Dubai.</p>
+                <p><strong>Open Daily:</strong> 10:00 AM - 10:00 PM</p>
+                <br>
+                <p>Walk-ins are welcome, but appointments guarantee your spot.</p>
+                <br><br>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="tel:+971554671771" class="cta-btn">Call Mobile</a>
+                    <a href="tel:+97145896390" class="cta-btn">Call Landline</a>
+                </div>
             </div>
         </div>
     </section>
